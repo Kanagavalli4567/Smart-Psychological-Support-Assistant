@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soul Sync AI - Your Mental Health Companion</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">🌿</span>
+                <h2>Soul Sync-AI</h2>
+            </div>
+            
+            <div class="user-section">
+                <div class="user-info-card">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-details">
+                        <div class="user-name" id="userNameDisplay">{{ full_name or username }}</div>
+                        <div class="user-username">@{{ username }}</div>
+                    </div>
+                </div>
+                <button id="logoutBtn" class="logout-btn">🚪 Logout</button>
+                <button id="clearBtn" class="clear-btn">🗑️ Clear Chat</button>
+            </div>
+            
+            <div class="emotion-tracker">
+                <h4>Current Mood</h4>
+                <div id="currentEmotion" class="emotion-badge">😊 Neutral</div>
+            </div>
+            
+            <div class="features-list">
+                <div class="feature-item">
+                    <span>🎙️</span>
+                    <span>Voice Input</span>
+                </div>
+                <div class="feature-item">
+                    <span>🌐</span>
+                    <span>Multi-language</span>
+                </div>
+                <div class="feature-item">
+                    <span>🎵</span>
+                    <span>Music Therapy</span>
+                </div>
+                <div class="feature-item">
+                    <span>🧘</span>
+                    <span>Exercises</span>
+                </div>
+            </div>
+            
+            <div class="tips-section">
+                <h4>💡 Quick Tips</h4>
+                <p id="dailyTip">Take 3 deep breaths. You're doing great! 💚</p>
+            </div>
+        </div>
+        
+        <!-- Main Chat Area -->
+        <div class="main-content">
+            <div class="chat-header">
+                <h1>AI Mental Health Assistant</h1>
+                <p>Your safe space to talk, anytime 💚</p>
+            </div>
+            
+            <div id="chat" class="chat-messages"></div>
+            
+            <div class="input-area">
+                <div class="input-container">
+                    <input type="text" id="msg" placeholder="Type your message here... (English, Tamil, Hindi)" autocomplete="off">
+                    <button id="sendBtn" class="send-btn">Send</button>
+                    <button id="micBtn" class="mic-btn">🎙️</button>
+                </div>
+                <div class="input-hint">Press Enter to send | Click 🎙️ for voice input</div>
+            </div>
+        </div>
+        
+        <!-- Recommendations Panel -->
+        <div class="recommendations-panel">
+            <div class="panel-header">
+                <h3>✨ Personalized For You</h3>
+                <button id="refreshRecs" class="refresh-btn">⟳</button>
+            </div>
+            <div id="recs" class="recs-content"></div>
+        </div>
+    </div>
+    
+    <script>
+        // Pass user data from Flask to JavaScript
+        const currentUser = {
+            username: "{{ username }}",
+            fullName: "{{ full_name or username }}"
+        };
+    </script>
+    <script src="/static/app.js"></script>
+</body>
+</html>
