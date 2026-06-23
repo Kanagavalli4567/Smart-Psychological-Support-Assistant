@@ -1,7 +1,7 @@
 venv/
+.venv/
+node_modules/
 __pycache__/
 *.pyc
+*.db
 .env
-node_modules/
-dist/
-build/
